@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>Test</h1>
+<p class='attribute'><strong>Start Time:</strong> 2020-09-14 23:26:01</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:01.845623</p>
+<p class='attribute'><strong>Status:</strong> Pass 6 Failure 1</p>
+
+<p class='description'>测试报告</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.test_bookstore.TestBookStore</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_frequencyDetailFemale</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: --------------------this is setup--------------------------
+测试通过
+--------------------this is teardown--------------------------
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_frequencyDetailRecommended</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: --------------------this is setup--------------------------
+测试通过
+--------------------this is teardown--------------------------
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_frequencyFemale</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: --------------------this is setup--------------------------
+测试通过
+--------------------this is teardown--------------------------
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_frequencyRecommended</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: --------------------this is setup--------------------------
+测试通过
+--------------------this is teardown--------------------------
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>testcase.test_my.TestMy</td>
+    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',3)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: --------------------this is setup--------------------------
+{
+    "code": 0,
+    "msg": "ok",
+    "body": {
+        "userName": "j29903982",
+        "token": "9ce76db35e9a03927f634bfee0084a5b",
+        "authToken": "9bf69953249f83e3472aa2c5e80dc903",
+        "uid": "auth_token:9bf69953249f83e3472aa2c5e80dc903",
+        "zyeId": "949ef684-855d-4e85-8d3f-76761b2287db",
+        "regType": "7",
+        "usrMsg": {
+            "nick": "111****1111",
+            "avatar": "",
+            "bindPhone": "11111111111",
+            "bindQQ": null,
+            "bindWechat": null,
+            "user": null
+        }
+    }
+}
+测试通过
+--------------------this is teardown--------------------------
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_myTab</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: --------------------this is setup--------------------------
+{
+    "code": 0,
+    "body": {
+        "isLogin": 0,
+        "userInfo": {
+            "userNick": "",
+            "phone": "",
+            "avatar": "https://bookbk.img.zhangyue01.com/idc_1/group61/M00/92/01/CmQUOVySDESEWlEnAAAAAF4frTY913006046.png?v=o9quIi4u&amp;t=CmQUOVySDEQ.",
+            "vipInfo": {
+                "vipType": 0,
+                "vipExpire": 0,
+                "expireDate": "",
+                "halfScreen": "https://dj.palmestore.com/zytc/public/index.php?ca=FreeVip.Index&amp;source=book",
+                "fullScreen": "https://dj.palmestore.com/zytc/public/index.php?ca=FreeVip.Index&amp;source=mine",
+                "description": "\u5f00\u901a\u7279\u6743",
+                "content": "\u70b9\u51fb\u8fdb\u5165\u8d2d\u4e70\u7279\u6743"
+            }
+        },
+        "sign": {
+            "title": "\u7b7e\u5230",
+            "url": ""
+        },
+        "share": {
+            "title": "\u5206\u4eab",
+            "switch": "1"
+        },
+        "readrank": {
+            "desc": "\u672c\u5468\u9605\u8bfb\u65f6\u957f\u8d85\u8d8a0%\u8bfb\u8005",
+            "isShow": 0,
+            "url": "https://dj.palmestore.com/zyuc/homepage/readrank?source=mine"
+        },
+        "tab": [
+            {
+                "title": "\u6211\u7684\u8d26\u6237",
+                "url": "https://dj.palmestore.com/zyuc/user/account?source=mine",
+                "isShow": 1,
+                "description": "",
+                "type": "web",
+                "icon": "https://bookbk.img.zhangyue01.com/idc_1/m_1,w_200,h_266/7c886786/group61/M00/43/7C/CmQUOF26p0WEOG-DAAAAAHYfaDY712343581.png?v=Y3nZHjxw&amp;t=CmQUOF26p0U.",
+                "login": 1,
+                "subtype": "my_account",
+                "ext": {}
+            },
+            {
+                "title": "\u9886\u798f\u5229",
+                "url": "https://dj.palmestore.com/zycl/gold/index?source=mine",
+                "isShow": 1,
+                "description": "",
+                "type": "web",
+                "icon": "https://bookbk.img.zhangyue01.com/idc_1/m_1,w_200,h_266/e9010b2c/group61/M00/C1/6C/CmQUOF6dQSuESHQ9AAAAAGmfA7M610178392.png?v=w450Vfav&amp;t=CmQUOF6dQSs.",
+                "login": 0,
+                "subtype": "welfare",
+                "ext": {}
+            },
+            {
+                "title": "\u9605\u8bfb\u8bb0\u5f55",
+                "url": "",
+                "isShow": 1,
+                "description": "",
+                "type": "local",
+                "icon": "https://bookbk.img.zhangyue01.com/idc_1/m_1,w_200,h_266/a3c4164f/group61/M00/43/85/CmQUOV26p0WECoQVAAAAAJX-nTc329941962.png?v=2ojlB08N&amp;t=CmQUOV26p0U.",
+                "login": 0,
+                "subtype": "read_record",
+                "ext": {}
+            },
+            {
+                "title": "\u8bbe\u7f6e",
+                "url": "",
+                "isShow": 1,
+                "description": "",
+                "type": "local",
+                "icon": "https://bookbk.img.zhangyue01.com/idc_1/m_1,w_200,h_266/dbe01d0b/group61/M00/43/7C/CmQUOF26p0WETYqPAAAAAFxMIfY740769821.png?v=lGSjUpSp&amp;t=CmQUOF26p0U.",
+                "login": 0,
+                "subtype": "setting",
+                "ext": {}
+            },
+            {
+                "title": "\u591c\u95f4\u6a21\u5f0f",
+                "url": "",
+                "isShow": 1,
+                "description": "",
+                "type": "switch",
+                "icon": "https://bookbk.img.zhangyue01.com/idc_1/m_1,w_200,h_266/ac92d3c5/group61/M00/43/85/CmQUOV26p0WEDwY4AAAAAJQCamM110149262.png?v=GXLVpQo6&amp;t=CmQUOV26p0U.",
+                "login": 0,
+                "subtype": "night_model",
+                "ext": {}
+            }
+        ],
+        "read": {
+            "time": 0,
+            "week": 0,
+            "total": 0
+        },
+        "vipBanner": {
+            "title": "\u5f97\u95f4\u7279\u6743",
+            "desc": "\u5c0a\u4eab\u65e0\u5e7f\u544a\u3001\u542c\u4e66\u7b49\u7279\u6743",
+            "button": {
+                "name": "\u5f00\u901a",
+                "url": "https://dj.palmestore.com/zytc/public/index.php?ca=FreeVip.Index&amp;source=mine"
+            },
+            "buddleText": ""
+        },
+        "amount": 877,
+        "switch": 0,
+        "gold": {
+            "isShow": 1,
+            "goldAmount": 2552,
+            "url": "https://dj.palmestore.com/zycl/gold/withdraw?source=mine"
+        }
+    },
+    "msg": ""
+}
+--------------------this is teardown--------------------------
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.3' class='none'>
+    <td class='failCase'><div class='testcase'>test_yizhiGame</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.3')" >
+        fail</a>
+
+    <div id='div_ft2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.3: --------------------this is setup--------------------------
+{'list': {'others': [{'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200612185349-bf6521bbdc8a9d57.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200612185349-bf6521bbdc8a9d57.png', 'tag': ['休闲'], 'c_end': '#B16C2D', 'clk_num': 853, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=181&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xODEmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '181', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181303-acc999942d7c97c9.png', 'name': '球球飞呀', 'c_start': '#B16C2D'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145347-8f47251118463a64.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145347-8f47251118463a64.png', 'tag': ['多人', 'iO'], 'c_end': '#2DBDA3', 'clk_num': 736, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=175&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNzUmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '175', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181324-e85160d23180fe10.png', 'name': '飞刀超强2.0', 'c_start': '#3076A6'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200612184858-d8be3072e870250f.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200612184858-d8be3072e870250f.png', 'tag': ['吃鸡', '射击'], 'c_end': '#B82C42', 'clk_num': 794, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=75&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD03NSZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '射击飞行', 'orientation': 'v', 'id': '75', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182913-965a9c48fd496827.png', 'name': '绝地枪神吃鸡', 'c_start': '#B84E2C'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200612185125-e87668c2606aa148.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200612185125-e87668c2606aa148.png', 'tag': ['益智', '答题'], 'c_end': '#AD95E7', 'clk_num': 752, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=178&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNzgmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '178', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181315-bd86154a7e8a4f86.png', 'name': '成语主考官', 'c_start': '#393838'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145450-0f640244e6447de9.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145450-0f640244e6447de9.png', 'tag': ['消除'], 'c_end': '#E6560B', 'clk_num': 766, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=70&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD03MCZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '70', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630183008-a0ea35ea544bde91.png', 'name': '后宫消消乐', 'c_start': '#D91E15'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145345-3e192c2f881525bd.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145345-3e192c2f881525bd.png', 'tag': ['消除'], 'c_end': '#E8912E', 'clk_num': 887, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=161&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNjEmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '161', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181726-dfe39030f6442927.png', 'name': '2048消消乐', 'c_start': '#FED23F'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145324-18411789fe89e992.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145324-18411789fe89e992.png', 'tag': [''], 'c_end': '#F8B71B', 'clk_num': 702, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=73&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD03MyZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '73', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182929-e9a9a82d6869c2c2.png', 'name': '小球历险记', 'c_start': '#D95618'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200410185058-03cd6d5861e99f64.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200410185058-03cd6d5861e99f64.png', 'tag': ['消除'], 'c_end': '#0090CB', 'clk_num': 707, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=122&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xMjImdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '122', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182402-6722dffd602b05a6.png', 'name': '开心消消乐', 'c_start': '#00B1D4'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200423110206-d67cfb499faad6ad.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200423110206-d67cfb499faad6ad.png', 'tag': ['益智', '答题'], 'c_end': '#FF7F4F', 'clk_num': 795, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=71&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD03MSZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '71', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182954-1182348228953896.png', 'name': '科举问答', 'c_start': '#FF5B65'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200612185607-d66c82bc83f6fa8a.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200612185607-d66c82bc83f6fa8a.png', 'tag': ['休闲', '解压'], 'c_end': '#E85205', 'clk_num': 676, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=148&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNDgmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '148', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182006-ffc2b6a9f2c88fd5.png', 'name': '3d剥玉米', 'c_start': '#FFA707'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145345-ce9ceecf294d14a9.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145345-ce9ceecf294d14a9.png', 'tag': ['经营策略'], 'c_end': '#CA7E00', 'clk_num': 767, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=165&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNjUmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '165', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181635-360846856685c43b.png', 'name': '家有财神（新）', 'c_start': '#E8B40C'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145606-2c49111bd82d7a8c.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145606-2c49111bd82d7a8c.png', 'tag': ['休闲', '经典'], 'c_end': '#F55E7E', 'clk_num': 601, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=66&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD02NiZ2bW9kZT1zZGsmdmd2ZXI9MyZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '66', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630183048-11f195e63115d6f9.png', 'name': '宝石连连看', 'c_start': '#DE5549'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145551-151bb23de1b18705.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145551-151bb23de1b18705.png', 'tag': ['休闲'], 'c_end': '#F68F0C', 'clk_num': 884, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=67&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD02NyZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '67', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630183037-4b70576bcf78ab20.png', 'name': '我家飞刀超强', 'c_start': '#EA4000'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200417100120-64ccab131cd1af57.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200417100120-64ccab131cd1af57.png', 'tag': ['体育', '拳击'], 'c_end': '#806153', 'clk_num': 778, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=159&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNTkmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '159', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181744-097e898adf34648a.png', 'name': '我拳击超强', 'c_start': '#695D4A'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145341-a9e7d5b320bb9bf9.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145341-a9e7d5b320bb9bf9.png', 'tag': ['操作', '战机'], 'c_end': '#DEA807', 'clk_num': 855, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=128&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xMjgmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '射击飞行', 'orientation': 'v', 'id': '128', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182315-bfd750af5823b03e.png', 'name': '极速战机', 'c_start': '#C76203'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145344-98d9117b2805a1fa.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145344-98d9117b2805a1fa.png', 'tag': ['休闲'], 'c_end': '#6F43E8', 'clk_num': 748, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=153&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNTMmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '153', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181835-0b975e74d9acb89d.png', 'name': '西部夺宝', 'c_start': '#48E6FC'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145215-6fba5d8f003ea0f9.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145215-6fba5d8f003ea0f9.png', 'tag': ['体育', '拳击'], 'c_end': '#D9460B', 'clk_num': 623, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=74&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD03NCZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '竞技体育', 'orientation': 'v', 'id': '74', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182920-e9e3831431bf51e7.png', 'name': '拳击超强', 'c_start': '#CD0104'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145345-ffe825f9093f0704.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145345-ffe825f9093f0704.png', 'tag': ['消除'], 'c_end': '#7D2AA1', 'clk_num': 835, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=162&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNjImdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '162', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181714-c920d377c70a5e20.png', 'name': '消灭萌星星', 'c_start': '#306FB6'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145619-2369338afb055163.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145619-2369338afb055163.png', 'tag': ['休闲'], 'c_end': '#75AFE0', 'clk_num': 766, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=65&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD02NSZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '65', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630183056-c9adcda1b70bcc6d.png', 'name': '狗狗跳一跳', 'c_start': '#8EE3F8'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145346-ddf258b7756d7f61.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145346-ddf258b7756d7f61.png', 'tag': ['养成', '女生爱玩'], 'c_end': '#99E8C4', 'clk_num': 625, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=167&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNjcmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '167', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181525-a6d3fc0e1cc4d742.png', 'name': '农场投猪', 'c_start': '#B3F2FE'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145344-9e5bac3b9b8ee74f.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145344-9e5bac3b9b8ee74f.png', 'tag': ['休闲'], 'c_end': '#FFF79A', 'clk_num': 603, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=151&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNTEmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '151', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181900-c04bccdda075cc75.png', 'name': '忍者切水果', 'c_start': '#009A46'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145345-6f77704b3e87b9e3.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145345-6f77704b3e87b9e3.png', 'tag': ['休闲', '经典'], 'c_end': '#7F21BF', 'clk_num': 621, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=163&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNjMmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '163', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181657-ba0de3e2535713e1.png', 'name': '俄罗斯方块（新）', 'c_start': '#2387D4'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145341-e118c5b9ebdfe27f.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145341-e118c5b9ebdfe27f.png', 'tag': ['休闲', '经典'], 'c_end': '#964DDB', 'clk_num': 801, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=131&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xMzEmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '棋牌经典', 'orientation': 'v', 'id': '131', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182247-d6bf7f723bed3234.png', 'name': '贪吃蛇', 'c_start': '#53C6F0'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145024-4c73be01acbddbac.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145024-4c73be01acbddbac.png', 'tag': ['射击'], 'c_end': '#860E9C', 'clk_num': 680, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=76&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD03NiZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '射击飞行', 'orientation': 'v', 'id': '76', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182904-badef99d026245b7.png', 'name': '防御大作战', 'c_start': '#A6180F'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145341-1d44c4d2cb6a5532.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145341-1d44c4d2cb6a5532.png', 'tag': ['操作'], 'c_end': '#B5413E', 'clk_num': 712, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=133&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xMzMmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '133', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182211-2f882309c910d0a2.png', 'name': '火柴人生存大冒险', 'c_start': '#633B64'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145341-b475901498483b4f.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145341-b475901498483b4f.png', 'tag': ['操作'], 'c_end': '#BF8011', 'clk_num': 729, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=129&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0xMjkmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'h', 'id': '129', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182305-a4ea98a8943f9754.png', 'name': '幻影小鸟', 'c_start': '#D41324'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145342-705696b871fb47f6.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145342-705696b871fb47f6.png', 'tag': ['操作'], 'c_end': '#813BA8', 'clk_num': 626, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=137&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xMzcmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '137', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182129-fd5775fc0dbdc663.png', 'name': '火柴人生上100层', 'c_start': '#EA3BA8'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200417122854-d01082d9b806bc77.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200417122854-d01082d9b806bc77.png', 'tag': ['休闲', '经典'], 'c_end': '#CC8110', 'clk_num': 682, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=170&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNzAmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '170', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181415-4a19fca6b643d4dd.png', 'name': '数字泡泡龙', 'c_start': '#E8DA3D'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145346-e61a4fededd40492.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145346-e61a4fededd40492.png', 'tag': ['休闲', '经典'], 'c_end': '#0063BD', 'clk_num': 760, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=173&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNzMmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '173', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181346-9e4ac662236d1d7c.png', 'name': '魔法泡泡龙', 'c_start': '#003984'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200413145341-c995c7756b1dc0ca.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200413145341-c995c7756b1dc0ca.png', 'tag': ['休闲'], 'c_end': '#C7FBEB', 'clk_num': 866, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=134&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xMzQmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '134', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182201-5d8ee02c5b2867e6.png', 'name': '采油小怪', 'c_start': '#95E4CC'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200612185018-5850be228776d03c.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200612185018-5850be228776d03c.png', 'tag': ['益智', '魔性'], 'c_end': '#756721', 'clk_num': 810, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=166&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xNjYmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '166', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181559-b307dd1d71819b0f.png', 'name': '绳索救援', 'c_start': '#5F461F'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200612185402-07e3debad28a2eef.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200612185402-07e3debad28a2eef.png', 'tag': ['益智'], 'c_end': '#293F67', 'clk_num': 890, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=184&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xODQmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '184', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181252-bbab1bd67b39a8d9.png', 'name': '开心七巧板', 'c_start': '#2D2A46'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-fb0951b0514a3ffc.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-0b018a8ee84fa842.png', 'tag': ['休闲益智'], 'c_end': '#FCEA7C', 'clk_num': 889, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=241&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yNDEmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['合成', '射击'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '241', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-b1cc0fab68fc56f3.png', 'name': '我是塔防', 'c_start': '#E6E165'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819110556-d31451f25640324a.png', 'icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819110556-f48f045436a3e1c1.png', 'tag': ['休闲益智'], 'c_end': '#FECFB4', 'clk_num': 714, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=221&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMjEmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['模拟经营'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '221', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819110556-8f50293687470e3a.png', 'name': '我的煎饼屋', 'c_start': '#FDE7C0'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105401-c001766bf985a198.png', 'icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105401-aed11435ed0db7ae.png', 'tag': ['休闲益智'], 'c_end': '#FF6005', 'clk_num': 738, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=215&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yMTUmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['超爽', '技巧'], 'sg_cat': '手速比拼', 'orientation': 'h', 'id': '215', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818104158-4631811e4d719ae9.png', 'name': '疯狂猎人', 'c_start': '#FFA912'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819170430-259a9294d68bc3e7.png', 'icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819170430-ae71686580c8c509.png', 'tag': ['手速比拼'], 'c_end': '#332033', 'clk_num': 617, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=224&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMjQmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['动作', '射击'], 'sg_cat': '手速比拼', 'orientation': 'h', 'id': '224', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819170430-f868412806a9ec2a.png', 'name': '盖世英雄', 'c_start': '#1F1515'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200628134322-fda3a409e98b6488.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200628134322-fda3a409e98b6488.png', 'tag': ['操作', '闯关'], 'c_end': '#253EE0', 'clk_num': 777, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=201&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMDEmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '201', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181025-2083e794b7fa2962.png', 'name': '旋转大刀', 'c_start': '#53D4FC'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200731/J20200731181014-149db8e2957d4391.png', 'icon': 'http://cdn.cashslide.cn/gc/20200731/J20200731181014-745cd0f89fd2709b.png', 'tag': ['休闲'], 'c_end': '#FF8A26', 'clk_num': 878, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=208&amp;vgver=6&amp;vmedia=84&amp;g=b64dmdpZD0yMDgmdm1vZGU9c2RrJnZndmVyPTYmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['脸盲', '记忆', '益智'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '208', 'vgver': '6', 'long_icon': 'http://cdn.cashslide.cn/gc/20200731/J20200731181014-fa26f8ba825ec570.png', 'name': '拯救脸盲', 'c_start': '#FFC132'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819101543-f567bf5c31c9e0fc.png', 'icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819101543-7ba618c2ded4ff78.png', 'tag': ['手速比拼'], 'c_end': '#631913', 'clk_num': 740, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=220&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMjAmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['切水果', '解压'], 'sg_cat': '手速比拼', 'orientation': 'h', 'id': '220', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819101543-c516adeaa14ef3ef.png', 'name': '功夫水果', 'c_start': '#572D15'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-76beb7c06f5b8053.png', 'icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-723fcb5042c0a279.png', 'tag': ['休闲益智'], 'c_end': '#E3BBB6', 'clk_num': 727, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=232&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMzImdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['公主', '粉色'], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '232', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-4c589013e1deedc8.png', 'name': '豆腐公主', 'c_start': '#D6C3B5'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818145139-05cc4a312dd788c6.png', 'icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818145139-e090ba22567e824a.png', 'tag': ['休闲益智'], 'c_end': '#F75020', 'clk_num': 760, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=216&amp;vgver=6&amp;vmedia=84&amp;g=b64dmdpZD0yMTYmdm1vZGU9c2RrJnZndmVyPTYmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['经营', '挂机'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '216', 'vgver': '6', 'long_icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818104716-11dbc8614407b690.png', 'name': '奇幻牧场', 'c_start': '#ED902A'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200727/J20200727171412-40760ea597922667.png', 'icon': 'http://cdn.cashslide.cn/gc/20200727/J20200727171412-c676e75531916e42.png', 'tag': ['棋牌经典'], 'c_end': '#A62F28', 'clk_num': 687, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=207&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMDcmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['五子棋', '益智', '对弈'], 'sg_cat': '棋牌经典', 'orientation': 'v', 'id': '207', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200727/J20200727171412-792db7c5310a625e.png', 'name': '五子棋好友对战', 'c_start': '#9A542D'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721182315-9ed11f300b87f552.png', 'icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721180600-c785ce2bdd8e79d6.png', 'tag': ['卡牌'], 'c_end': '#E6AD27', 'clk_num': 766, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=205&amp;vgver=11&amp;vmedia=84&amp;g=b64dmdpZD0yMDUmdm1vZGU9c2RrJnZndmVyPTExJnZtZWRpYT04NCZ2cmVxaWQ9ZzE2MDAwOTcxNjI3ZjgzNGNiMDAxMjU0NjEy&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['冒险', '武侠', '国风'], 'sg_cat': '棋牌经典', 'orientation': 'v', 'id': '205', 'vgver': '11', 'long_icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721180600-4fd529bcdf0e0a18.png', 'name': '山海绘卷', 'c_start': '#D87E30'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730110624-d4979bb92d510dff.png', 'icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730110624-dcad820197520b8c.png', 'tag': ['休闲'], 'c_end': '#067A56', 'clk_num': 635, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=211&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMTEmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['解压'], 'sg_cat': '缤纷消除', 'orientation': 'h', 'id': '211', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730110624-f71c96f0473f1f65.png', 'name': '砖块破坏王', 'c_start': '#00556E'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200824/J20200824183101-e23267ab2d68ec73.png', 'icon': 'http://cdn.cashslide.cn/gc/20200824/J20200824183101-3b42b48942e74190.png', 'tag': ['轻松一下'], 'c_end': '#A62C2B', 'clk_num': 851, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=227&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yMjcmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['模拟经营', 'Q版'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '227', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200824/J20200824183101-1d9b4b99aa8d0ed8.png', 'name': '兔兔点心铺', 'c_start': '#984F2F'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200904/J20200904152433-b4f36ca6af457265.png', 'icon': 'http://cdn.cashslide.cn/gc/20200904/J20200904152432-546ef136f11cdc48.png', 'tag': ['休闲益智'], 'c_end': '#FFDE21', 'clk_num': 735, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=243&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yNDMmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['射击'], 'sg_cat': '手速比拼', 'orientation': 'h', 'id': '243', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200904/J20200904152432-d8b7c8403c548174.png', 'name': '全民大乐斗', 'c_start': '#FFB72D'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721182218-28905a0522c8a53f.png', 'icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721175656-c4bd6cd89365abc1.png', 'tag': ['益智烧脑'], 'c_end': '#167894', 'clk_num': 897, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=203&amp;vgver=6&amp;vmedia=84&amp;g=b64dmdpZD0yMDMmdm1vZGU9c2RrJnZndmVyPTYmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['解谜', '密室'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '203', 'vgver': '6', 'long_icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721175656-e4c9fa27e4d32b43.png', 'name': '迷案追踪', 'c_start': '#1B3687'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200820/J20200820143644-c8f6a99a4e2c7080.png', 'icon': 'http://cdn.cashslide.cn/gc/20200820/J20200820143644-2cec9cfb69639212.png', 'tag': ['轻松一下'], 'c_end': '', 'clk_num': 710, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=223&amp;vgver=4&amp;vmedia=84&amp;g=b64dmdpZD0yMjMmdm1vZGU9c2RrJnZndmVyPTQmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['模拟经营'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '223', 'vgver': '4', 'long_icon': 'http://cdn.cashslide.cn/gc/20200820/J20200820143644-b32bcd3000059c16.png', 'name': '百亿女王', 'c_start': ''}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105249-fb19038384674097.png', 'icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105248-4540fcbe261fa6a4.png', 'tag': ['休闲益智'], 'c_end': '#FF7F12', 'clk_num': 786, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=213&amp;vgver=6&amp;vmedia=84&amp;g=b64dmdpZD0yMTMmdm1vZGU9c2RrJnZndmVyPTYmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['烧脑', '过关'], 'sg_cat': '益智烧脑', 'orientation': 'h', 'id': '213', 'vgver': '6', 'long_icon': 'http://cdn.cashslide.cn/gc/20200810/J20200810174142-17c90a8b8156e910.png', 'name': '多米爱捣蛋', 'c_start': '#FFBA1F'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200702105437-76ea9dc07cb44cfd.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200702105437-76ea9dc07cb44cfd.png', 'tag': ['轻松一下'], 'c_end': '#00E9FF', 'clk_num': 609, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=202&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMDImdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['闯关', '火柴人'], 'sg_cat': '手速比拼', 'orientation': 'h', 'id': '202', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200702110156-5d5ad899c0ed4b9c.png', 'name': '无敌火柴人', 'c_start': '#0830AC'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721182304-0d29d622b12d7580.png', 'icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721175859-e7de7660fed9a369.png', 'tag': ['射击飞行'], 'c_end': '#572A7D', 'clk_num': 851, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=204&amp;vgver=7&amp;vmedia=84&amp;g=b64dmdpZD0yMDQmdm1vZGU9c2RrJnZndmVyPTcmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['飞机大战', '战机'], 'sg_cat': '射击飞行', 'orientation': 'v', 'id': '204', 'vgver': '7', 'long_icon': 'http://cdn.cashslide.cn/gc/20200721/J20200721175859-e0083014037bcaca.png', 'name': '打飞机大战', 'c_start': '#712C65'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828110225-89c035cd34992b47.png', 'icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828110225-6c83372f37ddead9.png', 'tag': ['休闲益智'], 'c_end': '#8DC5FC', 'clk_num': 611, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=233&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMzMmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['解压', '治愈强迫症'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '233', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828110225-9ad595cd43900b0a.png', 'name': '刮腿毛', 'c_start': '#9998F8'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105325-7c9c179ec0852223.png', 'icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105325-86fb9165901618ef.png', 'tag': ['轻松一下'], 'c_end': '#39D0F7', 'clk_num': 876, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=214&amp;vgver=4&amp;vmedia=84&amp;g=b64dmdpZD0yMTQmdm1vZGU9c2RrJnZndmVyPTQmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['维修', '装扮', '升级'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '214', 'vgver': '4', 'long_icon': 'http://cdn.cashslide.cn/gc/20200810/J20200810101318-04401357f1d07b46.png', 'name': '维修大师', 'c_start': '#4371ED'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730103809-f2c31c315f36318a.png', 'icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730103809-04ba948b6cd1a73d.png', 'tag': ['消除'], 'c_end': '#067A56', 'clk_num': 678, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=210&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMTAmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['休闲'], 'sg_cat': '缤纷消除', 'orientation': 'h', 'id': '210', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730103809-558782012aa16edb.png', 'name': '开心消方块', 'c_start': '#00556E'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828101741-2014b16dd5070a0c.png', 'icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828101741-a1b866e6637c98c8.png', 'tag': ['休闲益智'], 'c_end': '#DD47F5', 'clk_num': 664, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=231&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yMzEmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['实物奖励', '快乐抓取'], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '231', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828101741-1c6d129a10935489.png', 'name': '欢乐娃娃机', 'c_start': '#E85077'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094742-f76aa5317f40b024.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094742-7251a6d9b9fddf92.png', 'tag': ['休闲益智'], 'c_end': '#FAD22F', 'clk_num': 693, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=238&amp;vgver=4&amp;vmedia=84&amp;g=b64dmdpZD0yMzgmdm1vZGU9c2RrJnZndmVyPTQmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['女性向', '休闲'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '238', 'vgver': '4', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094742-eb2662be74966697.png', 'name': '梦幻蛋糕', 'c_start': '#E4B036'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200820/J20200820181727-8a7da19efb72f6cd.png', 'icon': 'http://cdn.cashslide.cn/gc/20200820/J20200820181727-377aa7d9041e14b3.png', 'tag': ['缤纷消除'], 'c_end': '#434287', 'clk_num': 773, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=226&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMjYmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['日式RPG', '角色扮演'], 'sg_cat': '缤纷消除', 'orientation': 'v', 'id': '226', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200820/J20200820181727-94c512f5fdb1e6be.png', 'name': '学院消除大作战', 'c_start': '#61427A'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094423-ebf3d063c9419bf3.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094422-4a7966f1dd28e60b.png', 'tag': ['休闲益智'], 'c_end': '#57772B', 'clk_num': 832, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=240&amp;vgver=7&amp;vmedia=84&amp;g=b64dmdpZD0yNDAmdm1vZGU9c2RrJnZndmVyPTcmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['通关', '击杀'], 'sg_cat': '益智烧脑', 'orientation': 'h', 'id': '240', 'vgver': '7', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094422-732e26c197313b88.png', 'name': '地下城历险记', 'c_start': '#438F2C'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200628133916-d46f4042adc20cc6.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200628133916-d46f4042adc20cc6.png', 'tag': ['射击'], 'c_end': '#F561E6', 'clk_num': 672, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=199&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xOTkmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '199', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181136-886e715a6df2c2bf.png', 'name': '极速公路赛', 'c_start': '#382FE1'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730100846-727dc685e93d0025.png', 'icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730100846-a4c67c2651efa0d2.png', 'tag': ['休闲'], 'c_end': '#15BF93', 'clk_num': 707, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=209&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMDkmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['找茬'], 'sg_cat': '益智烧脑', 'orientation': 'h', 'id': '209', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200730/J20200730100846-126edbf54ede16c8.png', 'name': '欢乐来找茬', 'c_start': '#1D88B2'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907093713-41c8b11a5ac51a0a.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907093713-2e4e1f38cc69df5f.png', 'tag': ['休闲益智'], 'c_end': '#B2F28F', 'clk_num': 682, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=242&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yNDImdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['折纸', '益智'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '242', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907093713-c082daeb505cca2d.png', 'name': '折纸王者', 'c_start': '#8CDB8C'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819171236-e235811689e18940.png', 'icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819171236-6037b4ced0740bf1.png', 'tag': ['轻松一下'], 'c_end': '#FCF7E2', 'clk_num': 709, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=225&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMjUmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['模拟经营'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '225', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819171236-8e92abd7c4982cb9.png', 'name': '农场富家翁', 'c_start': '#F8F8F0'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200826/J20200826170729-dde726e94ccdacc5.png', 'icon': 'http://cdn.cashslide.cn/gc/20200826/J20200826170729-a70bc0a463c0c0a0.png', 'tag': ['休闲益智'], 'c_end': '#B33AF2', 'clk_num': 891, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=230&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMzAmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['烧脑', '萌系'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '230', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200826/J20200826170729-2a2d97f13bac4afb.png', 'name': 'Q弹联盟大作战', 'c_start': '#E643AB'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200826/J20200826154750-838f67c59be440ab.png', 'icon': 'http://cdn.cashslide.cn/gc/20200826/J20200826154750-c55ef4316ae4dac2.png', 'tag': ['休闲益智'], 'c_end': '#455BE6', 'clk_num': 623, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=228&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMjgmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['休闲经营'], 'sg_cat': '益智烧脑', 'orientation': 'h', 'id': '228', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200826/J20200826154750-9dc74b8081952ffd.png', 'name': '保护好橙子', 'c_start': '#4CABD9'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105147-f384d49600ba5a6a.png', 'icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105147-1f15946399246a49.png', 'tag': ['休闲益智'], 'c_end': '#3C409E', 'clk_num': 636, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=217&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMTcmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['美图', '有趣'], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '217', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200818/J20200818105147-1c1c562a024596d6.png', 'name': '涂涂纹身店', 'c_start': '#693F92'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200902/J20200902154544-9ed8764200eb4b8f.png', 'icon': 'http://cdn.cashslide.cn/gc/20200902/J20200902154544-bd575e4f5402f6d2.png', 'tag': ['休闲益智'], 'c_end': '#FF9126', 'clk_num': 738, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=234&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMzQmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['摆摊', '后浪'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '234', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200902/J20200902154544-c85cc52de5d5a9eb.png', 'name': '全民摆摊', 'c_start': '#E89A17'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-31798d0682c9f45e.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-6668e9a638df1b33.png', 'tag': ['休闲益智'], 'c_end': '#534DA1', 'clk_num': 639, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=239&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yMzkmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['答题', '休闲', '智力'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '239', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-d58fbde454a715b3.png', 'name': '百科小能手', 'c_start': '#485589'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200904/J20200904131615-2a4594cda31ed93e.png', 'icon': 'http://cdn.cashslide.cn/gc/20200904/J20200904131615-f1ce9bb0560202b4.png', 'tag': ['模拟经营'], 'c_end': '#F051AF', 'clk_num': 609, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=237&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMzcmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['女性向', '客栈'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '237', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200904/J20200904131615-fda05dbda094900f.png', 'name': '小小客栈', 'c_start': '#D455DA'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819143436-0a07c366753690f9.png', 'icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819143436-80e5573f86e113fc.png', 'tag': ['轻松一下'], 'c_end': '#010E8C', 'clk_num': 835, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=222&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMjImdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['航海', '模拟经营'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '222', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200819/J20200819143436-08930816a3c81e63.png', 'name': '大航海物语', 'c_start': '#08527F'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200803/J20200803145007-e1f65f6c1191e371.png', 'icon': 'http://cdn.cashslide.cn/gc/20200803/J20200803145007-0247a7ad864bdc78.png', 'tag': ['经营策略'], 'c_end': '#BF5B3B', 'clk_num': 872, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=212&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0yMTImdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['考古', '模拟经营'], 'sg_cat': '经营策略', 'orientation': 'h', 'id': '212', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200803/J20200803145007-4d72627c21204d97.png', 'name': '探索博物馆', 'c_start': '#B27C40'}], 'new': {'newpage': [], 'all_category': [], 'listpage': [{'name': '精品推荐', 'list': [{'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200601182150-90951e0fee46a0ad.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200601182150-90951e0fee46a0ad.png', 'tag': ['动作', '功夫'], 'c_end': '#0E97CF', 'clk_num': 685, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=196&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0xOTYmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '196', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181221-204e72aa3163ad44.png', 'name': '火柴人功夫', 'c_start': '#152E95'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200612185504-87f2176381d376c0.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200612185504-87f2176381d376c0.png', 'tag': ['益智烧脑'], 'c_end': '#7874F2', 'clk_num': 856, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=194&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xOTQmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '194', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181234-8911288bfcb02030.png', 'name': '欢乐水杯', 'c_start': '#79DDFC'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145355-e1c0ee33869f1545.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145355-e1c0ee33869f1545.png', 'tag': ['休闲', '经典'], 'c_end': '#658006', 'clk_num': 667, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=72&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD03MiZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '72', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182938-ff846efff5830e4a.png', 'name': '我切水果超强', 'c_start': '#0A7200'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-76beb7c06f5b8053.png', 'icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-723fcb5042c0a279.png', 'tag': ['休闲益智'], 'c_end': '#E3BBB6', 'clk_num': 727, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=232&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMzImdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['公主', '粉色'], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '232', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-4c589013e1deedc8.png', 'name': '豆腐公主', 'c_start': '#D6C3B5'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-fb0951b0514a3ffc.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-0b018a8ee84fa842.png', 'tag': ['休闲益智'], 'c_end': '#FCEA7C', 'clk_num': 889, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=241&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yNDEmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['合成', '射击'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '241', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-b1cc0fab68fc56f3.png', 'name': '我是塔防', 'c_start': '#E6E165'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-31798d0682c9f45e.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-6668e9a638df1b33.png', 'tag': ['休闲益智'], 'c_end': '#534DA1', 'clk_num': 639, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=239&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yMzkmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['答题', '休闲', '智力'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '239', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-d58fbde454a715b3.png', 'name': '百科小能手', 'c_start': '#485589'}]}]}, 'top': [{'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200601182150-90951e0fee46a0ad.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200601182150-90951e0fee46a0ad.png', 'tag': ['动作', '功夫'], 'c_end': '#0E97CF', 'clk_num': 685, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=196&amp;vgver=3&amp;vmedia=84&amp;g=b64dmdpZD0xOTYmdm1vZGU9c2RrJnZndmVyPTMmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '196', 'vgver': '3', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181221-204e72aa3163ad44.png', 'name': '火柴人功夫', 'c_start': '#152E95'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200612185504-87f2176381d376c0.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200612185504-87f2176381d376c0.png', 'tag': ['益智烧脑'], 'c_end': '#7874F2', 'clk_num': 856, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=194&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0xOTQmdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '194', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630181234-8911288bfcb02030.png', 'name': '欢乐水杯', 'c_start': '#79DDFC'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200716/s-J20200422145355-e1c0ee33869f1545.png', 'icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200422145355-e1c0ee33869f1545.png', 'tag': ['休闲', '经典'], 'c_end': '#658006', 'clk_num': 667, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=72&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD03MiZ2bW9kZT1zZGsmdmd2ZXI9MiZ2bWVkaWE9ODQmdnJlcWlkPWcxNjAwMDk3MTYyN2Y4MzRjYjAwMTI1NDYxMg%3D%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': [''], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '72', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200716/m-J20200630182938-ff846efff5830e4a.png', 'name': '我切水果超强', 'c_start': '#0A7200'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-76beb7c06f5b8053.png', 'icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-723fcb5042c0a279.png', 'tag': ['休闲益智'], 'c_end': '#E3BBB6', 'clk_num': 727, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=232&amp;vgver=2&amp;vmedia=84&amp;g=b64dmdpZD0yMzImdm1vZGU9c2RrJnZndmVyPTImdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['公主', '粉色'], 'sg_cat': '手速比拼', 'orientation': 'v', 'id': '232', 'vgver': '2', 'long_icon': 'http://cdn.cashslide.cn/gc/20200828/J20200828104511-4c589013e1deedc8.png', 'name': '豆腐公主', 'c_start': '#D6C3B5'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-fb0951b0514a3ffc.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-0b018a8ee84fa842.png', 'tag': ['休闲益智'], 'c_end': '#FCEA7C', 'clk_num': 889, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=241&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yNDEmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['合成', '射击'], 'sg_cat': '经营策略', 'orientation': 'v', 'id': '241', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094041-b1cc0fab68fc56f3.png', 'name': '我是塔防', 'c_start': '#E6E165'}, {'s_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-31798d0682c9f45e.png', 'icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-6668e9a638df1b33.png', 'tag': ['休闲益智'], 'c_end': '#534DA1', 'clk_num': 639, 'clk_url': 'http://api.gamecenter.viaweb.cn/game?vgid=239&amp;vgver=5&amp;vmedia=84&amp;g=b64dmdpZD0yMzkmdm1vZGU9c2RrJnZndmVyPTUmdm1lZGlhPTg0JnZyZXFpZD1nMTYwMDA5NzE2MjdmODM0Y2IwMDEyNTQ2MTI%3D&amp;vreqid=g16000971627f834cb001254612', 'highlight_tag': ['答题', '休闲', '智力'], 'sg_cat': '益智烧脑', 'orientation': 'v', 'id': '239', 'vgver': '5', 'long_icon': 'http://cdn.cashslide.cn/gc/20200907/J20200907094550-d58fbde454a715b3.png', 'name': '百科小能手', 'c_start': '#485589'}]}, 'cnzz': ''}
+70
+#B16C2D
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#2DBDA3
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#B82C42
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#AD95E7
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#E6560B
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#E8912E
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#F8B71B
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#0090CB
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#FF7F4F
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#E85205
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#CA7E00
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#F55E7E
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#F68F0C
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#806153
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#DEA807
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#6F43E8
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#D9460B
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#7D2AA1
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#75AFE0
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#99E8C4
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#FFF79A
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#7F21BF
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#964DDB
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#860E9C
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#B5413E
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#BF8011
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#813BA8
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#CC8110
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#0063BD
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#C7FBEB
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#756721
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#293F67
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#FCEA7C
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#FECFB4
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#FF6005
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#332033
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#253EE0
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#FF8A26
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#631913
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#E3BBB6
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#F75020
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#A62F28
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#E6AD27
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#067A56
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#A62C2B
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#FFDE21
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+#167894
+开始又一次的遍历啦啦啦啦啦啦========================================================================
+
+--------------------this is teardown--------------------------
+Traceback (most recent call last):
+  File "D:\DejianInterface\testcase\test_my.py", line 78, in test_yizhiGame
+    self.assertTrue(c_end.startswith('#'),msg='c_end的返回值需要以#开头')
+AssertionError: False is not true : c_end的返回值需要以#开头
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>7</td>
+    <td>6</td>
+    <td>1</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
