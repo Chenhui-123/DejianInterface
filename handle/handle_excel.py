@@ -65,6 +65,9 @@ class HandExcel:
         wr=wb.active
         wr.cell(row,cols,data)
         wb.save(base_path+"/Case/case.xlsx")
+    
+    def get_cols_value(self,col):
+        pass
 
 
 handle_excel = HandExcel()
