@@ -22,6 +22,7 @@ class HandleResult:
                     return message
                 if message=='':
                     return message
+                
             print('未获取到message值')
             return None
         else:

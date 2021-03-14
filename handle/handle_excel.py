@@ -67,7 +67,20 @@ class HandExcel:
         wb.save(base_path+"/Case/case.xlsx")
     
     def get_cols_value(self,col):
-        pass
+        #k=dict(self.get_sheet_data().iter_cols(10,10))
+        col_list=[]
+        cols=self.get_sheet_data().iter_cols(10,10)
+
+        for col in cols:
+            #print(col)
+            for cell in col:
+                #print(cell.value)
+                col_list.append(cell.value)
+        return col_list
+
+            
+        
+        
 
 
 handle_excel = HandExcel()
@@ -82,3 +95,4 @@ if __name__ == "__main__":
     print(handle_excel.get_rows_value(2))
     print(handle_excel.get_rows())
     handle_excel.excel_write_data(2,9,"通过")
+    print(handle_excel.get_cols_value(10))
