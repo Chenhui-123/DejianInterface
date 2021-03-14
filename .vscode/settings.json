@@ -1,6 +1,5 @@
 {
-    "workbench.editorAssociations": [
-    
-    ]
-    "terminal.integrated.shell.windows":"D:\\Program Files\\Git\\bin\\bash.exe"
+    "workbench.editorAssociations": [],
+    "terminal.integrated.shell.windows":"D:\\Program Files\\Git\\bin\\bash.exe",
+    "git.path":"D:\\Program Files\\Git\\bin\\git.exe"
 }
