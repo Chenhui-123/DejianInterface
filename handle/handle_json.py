@@ -21,10 +21,11 @@ class HandJson:
 handJson=HandJson()
 if __name__=='__main__':
     handJson=HandJson()
-    #print(handJson.get_value('/zybk/api/ad/adconfig?ip=111.194.219.35&timestamp=1613728431246&pluginVersion=148&zyeid=7264245f-c66f-4659-aa24-9bb6df37c4f4&usr=j35532181&rgt=7&p1=V3WygQ4dlCADADL64yvBGhkY&pc=10&p2=124008&p3=17136556&p4=501656&p5=12&p6=&p7=__3e932cc0f202a00f&p9=2&p12=&p16=vivo+Y51A&p21=3&p22=5.1.1&p25=17136556&p26=22&p28=&p30=__624900019789874&p31=__3e932cc0f202a00f','/config/code_message.json'))
-    a=''
-    if a=='':
-        print("=======================")
+    #print(handJson.read_json())
+    print(handJson.get_value('/zybk/api/ad/adconfig?ip=111.194.219.35&timestamp=1613728431246&pluginVersion=148&zyeid=7264245f-c66f-4659-aa24-9bb6df37c4f4&usr=j35532181&rgt=7&p1=V3WygQ4dlCADADL64yvBGhkY&pc=10&p2=124008&p3=17136556&p4=501656&p5=12&p6=&p7=__3e932cc0f202a00f&p9=2&p12=&p16=vivo+Y51A&p21=3&p22=5.1.1&p25=17136556&p26=22&p28=&p30=__624900019789874&p31=__3e932cc0f202a00f','/config/code_message.json'))
+    # a=''
+    # if a:
+    #     print("=======================")
                
 
 
