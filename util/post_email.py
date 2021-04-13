@@ -13,7 +13,7 @@ class PostEmail:
         mail_pass = "TYHYHPHEVJPZKWRF"  # 密码(这里的密码不是登录邮箱密码，而是授权码)
 
         sender = '15010588693@163.com'  # 发件人邮箱
-        receivers = ['chenhui@zhangyue.com','shi_haoo@163.com']  # 接收人邮箱
+        receivers = ['chenhui@zhangyue.com','zhangle@zhangyue.com']  # 接收人邮箱
 
         msgRoot = MIMEMultipart()
         msgRoot['Subject'] = subject

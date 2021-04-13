@@ -33,8 +33,9 @@ class HandleResult:
         # dict1={"aaa":"AAA","bbb":"BBBB","CC":[{"11":"22"},{"33":"44"}]}
         # dict2={"aaa":"AAAA","bbb":"BBBB1","CC":[{"11":"222"},{"33":"44"}]}
         # dict3={"bbb":"BBBB","CC":[{"11":"22"},{"33":"44"}],"EE":"eee"}
-        # print(deepdiff.DeepDiff(dict3,dict2,ignore_order=True).to_dict())
+        #print(deepdiff.DeepDiff(dict3,dict2,ignore_order=True).to_dict())
         cmp_dict=deepdiff.DeepDiff(dict1,dict2,ignore_order=True).to_dict()
+        print(cmp_dict)
         if cmp_dict.get("dictionary_item_added") or cmp_dict.get("dictionary_item_removed"):
             print("case执行失败")
             return False
@@ -54,12 +55,12 @@ class HandleResult:
 
 handleResult=HandleResult()
 if __name__=='__main__':
-    dict1={"aaa":"AAA","bbb":"BBBB","CC":[{"11":"22"},{"33":"44"}]}
-    dict2={"aaa":"AAAA","bbb":"BBBB1","CC":[{"11":"222"},{"33":"44"}]}
+    dict1={"aaa":"AAAA","bbb":"BBBB","CC":[{"11":"222"},{"33":"44"}]}
+    dict2={"bbb":"BBBB","CC":[{"11":"222"},{"33":"44"}]}
     handleResult=HandleResult()
     print(handleResult.handle_result_json(dict1,dict2))
     
-#    print(handleResult.get_value('/zyuc/api/user/my/tab?sign=V3z41RGggYY2NhLOa1UZk4lUEEsvUP2LShuluZgZc/1I4lcw6h8mTh/NfCRqZTDoAt7wj+EgA7KuzyZJIGsa//YQDOPpfCV2FGB/JfqPLUdDK7VLng+W8gtw7BjYF2Xl4qLQOEMnEcim3KFY3Tb1vu23plv0YTruIO1bERLUB3w=&timestamp=1595756193640&usr=j28331372&zyeid=f622652b-52d3-4059-84e2-75b52d6dffad&usr=j28331372&rgt=7&p1=V3WygQ4dlCADADL64yvBGhkY&ku=j28331372&kt=7c589265807dc50ff4dc70ef29c4cbc1&pc=10&p2=124011&p3=17126056&p4=501656&p5=12&p6=&p7=__3e932cc0f202a00f&p9=2&p12=&p16=vivo+Y51A&p21=3&p22=5.1.1&p25=17126056&p26=22 HTTP/1.1',3))
+    #print(handleResult.get_value('/zyuc/api/user/my/tab?sign=V3z41RGggYY2NhLOa1UZk4lUEEsvUP2LShuluZgZc/1I4lcw6h8mTh/NfCRqZTDoAt7wj+EgA7KuzyZJIGsa//YQDOPpfCV2FGB/JfqPLUdDK7VLng+W8gtw7BjYF2Xl4qLQOEMnEcim3KFY3Tb1vu23plv0YTruIO1bERLUB3w=&timestamp=1595756193640&usr=j28331372&zyeid=f622652b-52d3-4059-84e2-75b52d6dffad&usr=j28331372&rgt=7&p1=V3WygQ4dlCADADL64yvBGhkY&ku=j28331372&kt=7c589265807dc50ff4dc70ef29c4cbc1&pc=10&p2=124011&p3=17126056&p4=501656&p5=12&p6=&p7=__3e932cc0f202a00f&p9=2&p12=&p16=vivo+Y51A&p21=3&p22=5.1.1&p25=17126056&p26=22 HTTP/1.1',3))
 
 
 
